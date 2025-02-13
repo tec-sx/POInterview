@@ -1,0 +1,6 @@
+@POInterview.API_HostAddress = http://localhost:5028
+
+GET {{POInterview.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

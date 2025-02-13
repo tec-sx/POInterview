@@ -1,0 +1,52 @@
+############
+## GLOBAL ##
+.vs/*
+.vscode
+
+# misc
+*.swp
+*.*~
+.DS_Store
+*.pyc
+
+#############
+### REACT ###
+
+# dependencies
+pointerview.app/node_modules
+pointerview.app/.pnp
+pointerview.app/.pnp.js
+
+# testing
+pointerview.app/coverage
+
+# production
+pointerview.app/build
+
+#misc
+pointerview.app/.env.local
+pointerview.app/.env.development.local
+pointerview.app/.env.test.local
+pointerview.app/.env.production.local
+
+pointerview.app/npm-debug.log*
+pointerview.app/yarn-debug.log*
+pointerview.app/yarn-error.log*
+
+############
+### .NET ###
+
+# Build results
+pointerview.backend/**/[Dd]ebug/
+pointerview.backend/**/[Dd]ebugPublic/
+pointerview.backend/**/[Rr]elease/
+pointerview.backend/**/[Rr]eleases/
+pointerview.backend/**/x64/
+pointerview.backend/**/x86/
+pointerview.backend/**/build/
+pointerview.backend/**/bld/
+pointerview.backend/**/[Bb]in/
+pointerview.backend/**/[Oo]bj/
+pointerview.backend/**/msbuild.log
+pointerview.backend/**/msbuild.err
+pointerview.backend/**/msbuild.wrn
