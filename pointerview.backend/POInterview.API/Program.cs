@@ -1,10 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using POInterview.API.Infrastructure;
 using POInterview.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configure logging
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
+// Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");
 
 builder.Services.AddControllers();
@@ -25,6 +29,10 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Configure exception handling
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,8 +46,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
-
 app.UseCors("clientApp");
+
+app.UseExceptionHandler();
+
+app.MapControllers();
 
 app.Run();
