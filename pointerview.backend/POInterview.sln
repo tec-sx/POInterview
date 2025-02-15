@@ -5,11 +5,11 @@ VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POInterview.API", "POInterview.API\POInterview.API.csproj", "{546DDCFB-0C93-443B-9A32-924F632F6B9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POInterview.DataAccess", "POInterview.DataAccess\POInterview.DataAccess.csproj", "{08867F90-7BE8-489E-B07C-A27398E226D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POInterview.Infrastructure", "POInterview.Infrastructure\POInterview.Infrastructure.csproj", "{08867F90-7BE8-489E-B07C-A27398E226D3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POInterview.DataAccess.Tests", "UnitTests\POInterview.DataAccess.Tests\POInterview.DataAccess.Tests.csproj", "{2889C128-A34D-4060-A92A-27B3B5E87826}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POInterview.Application", "POInterview.Application\POInterview.Application.csproj", "{B2B7FDF7-EA33-42EB-80D3-9C4B1C820C62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +29,10 @@ Global
 		{2889C128-A34D-4060-A92A-27B3B5E87826}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2889C128-A34D-4060-A92A-27B3B5E87826}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2889C128-A34D-4060-A92A-27B3B5E87826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2B7FDF7-EA33-42EB-80D3-9C4B1C820C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B7FDF7-EA33-42EB-80D3-9C4B1C820C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2B7FDF7-EA33-42EB-80D3-9C4B1C820C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2B7FDF7-EA33-42EB-80D3-9C4B1C820C62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿namespace POInterview.DataAccess.Entities;
+﻿namespace POInterview.Infrastructure.Data.Entities;
 
 public sealed record Booking : EntityBase
 {

@@ -2,25 +2,22 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using POInterview.DataAccess;
+using POInterview.Infrastructure.Data;
 
 #nullable disable
 
 namespace POInterview.DataAccess.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
-    [Migration("20250213173054_UpdateColumnTypes")]
-    partial class UpdateColumnTypes
+    [DbContext(typeof(ApplicationDbContext))]
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
 
-            modelBuilder.Entity("POInterview.DataAccess.Entities.Booking", b =>
+            modelBuilder.Entity("POInterview.Infrastructure.Data.Entities.Booking", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +42,7 @@ namespace POInterview.DataAccess.Migrations
                     b.ToTable("Booking");
                 });
 
-            modelBuilder.Entity("POInterview.DataAccess.Entities.Resource", b =>
+            modelBuilder.Entity("POInterview.Infrastructure.Data.Entities.Resource", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,9 +92,9 @@ namespace POInterview.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("POInterview.DataAccess.Entities.Booking", b =>
+            modelBuilder.Entity("POInterview.Infrastructure.Data.Entities.Booking", b =>
                 {
-                    b.HasOne("POInterview.DataAccess.Entities.Resource", "Resource")
+                    b.HasOne("POInterview.Infrastructure.Data.Entities.Resource", "Resource")
                         .WithMany()
                         .HasForeignKey("ResourceId")
                         .OnDelete(DeleteBehavior.Cascade)

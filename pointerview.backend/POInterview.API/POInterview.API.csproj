@@ -15,7 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\POInterview.DataAccess\POInterview.DataAccess.csproj" />
+    <ProjectReference Include="..\POInterview.Infrastructure\POInterview.Infrastructure.csproj" />
+    <ProjectReference Include="..\POInterview.Application\POInterview.Application.csproj" />
   </ItemGroup>
 
 </Project>

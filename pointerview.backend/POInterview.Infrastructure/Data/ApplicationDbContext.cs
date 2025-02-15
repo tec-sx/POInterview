@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using POInterview.DataAccess.Configuration;
-using POInterview.DataAccess.Entities;
+using POInterview.Infrastructure.Data.Configuration;
+using POInterview.Infrastructure.Data.Entities;
 
-namespace POInterview.DataAccess;
+namespace POInterview.Infrastructure.Data;
 
-public class AppDbContext : DbContext
+public class ApplicationDbContext : DbContext
 {
     public DbSet<Resource> Resources;
     public DbSet<Booking> Bookings;
 
-    public AppDbContext(DbContextOptions<AppDbContext> options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     { }
 

@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using POInterview.DataAccess.Entities;
+using POInterview.Infrastructure.Data.Entities;
 
-namespace POInterview.DataAccess.Configuration;
+namespace POInterview.Infrastructure.Data.Configuration;
 
-public class BookingConfiguration : IEntityTypeConfiguration<Booking>
+internal sealed class BookingConfiguration : IEntityTypeConfiguration<Booking>
 {
     public void Configure(EntityTypeBuilder<Booking> builder)
     {
