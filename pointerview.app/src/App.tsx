@@ -1,28 +1,17 @@
-import React, { useEffect, useState } from 'react';
 import './App.css';
-import WeatherForcastApi from './api/weather';
-import { WeatherForecastResponse } from './types/Response.types';
+import { AppShell, createTheme, MantineProvider } from '@mantine/core';
+import ResourceOverviewPage from './pages/ResourceOverviewPage';
 
 function App() {
-  const [weatherRecords, setWeatherForecast] = useState<WeatherForecastResponse[]>([]);
-
-  useEffect(() => {
-    WeatherForcastApi.getWeather()
-      .then(response => {
-        setWeatherForecast(response)})
-      .catch(err => console.log(err));
-  }, []);
-
   return (
-    <div className="App">
-      <ul>
-        {weatherRecords.map((list, i) =>(
-          <li key={i}>
-            <span>{list.temperatureC}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <MantineProvider defaultColorScheme="dark">
+      <AppShell header={{ height: 60 }} padding="md">
+        <AppShell.Header>P.O. Interview</AppShell.Header>
+        <AppShell.Main>
+            <ResourceOverviewPage />
+        </AppShell.Main>
+      </AppShell>
+    </MantineProvider>
   );
 }
 

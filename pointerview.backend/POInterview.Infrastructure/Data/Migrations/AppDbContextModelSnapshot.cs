@@ -26,11 +26,19 @@ namespace POInterview.DataAccess.Migrations
                     b.Property<int>("BookedQuantity")
                         .HasColumnType("integer");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("DATETIME('now')");
+
                     b.Property<DateTime>("DateFrom")
                         .HasColumnType("datetime");
 
                     b.Property<DateTime>("DateTo")
                         .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ResourceId")
                         .HasColumnType("integer");
@@ -39,7 +47,7 @@ namespace POInterview.DataAccess.Migrations
 
                     b.HasIndex("ResourceId");
 
-                    b.ToTable("Booking");
+                    b.ToTable("Bookings", (string)null);
                 });
 
             modelBuilder.Entity("POInterview.Infrastructure.Data.Entities.Resource", b =>
@@ -47,6 +55,14 @@ namespace POInterview.DataAccess.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("DATETIME('now')");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -57,36 +73,41 @@ namespace POInterview.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Resource");
+                    b.ToTable("Resources", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Resource 1",
                             Quantity = 4
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Resource 2",
                             Quantity = 0
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Resource 3",
                             Quantity = 2
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Resource 4",
                             Quantity = 5
                         },
                         new
                         {
                             Id = 5,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Resource 5",
                             Quantity = 1
                         });

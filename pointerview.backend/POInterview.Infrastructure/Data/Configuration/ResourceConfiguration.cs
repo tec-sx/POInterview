@@ -8,10 +8,7 @@ internal sealed class ResourceConfiguration : IEntityTypeConfiguration<Resource>
 {
     public void Configure(EntityTypeBuilder<Resource> builder)
     {
-        builder.Property(r => r.Id)
-            .HasColumnType("integer")
-            .IsRequired()
-            .ValueGeneratedOnAdd();
+        builder.ToTable("Resources");
 
         builder.Property(r => r.Name)
             .HasColumnType("nvarchar(100)")
@@ -30,24 +27,28 @@ internal sealed class ResourceConfiguration : IEntityTypeConfiguration<Resource>
         new Resource
         {
             Id = 1,
+            CreatedAt = DateTime.Now,
             Name = "Resource 1",
             Quantity = 4
         },
         new Resource
         {
             Id = 2,
+            CreatedAt = DateTime.Now,
             Name = "Resource 2",
             Quantity = 0
         },
         new Resource
         {
             Id = 3,
+            CreatedAt = DateTime.Now,
             Name = "Resource 3",
             Quantity = 2
         },
         new Resource
         {
             Id = 4,
+            CreatedAt = DateTime.Now,
             Name = "Resource 4",
             Quantity = 5
         },

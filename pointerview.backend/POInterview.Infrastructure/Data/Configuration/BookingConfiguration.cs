@@ -8,10 +8,7 @@ internal sealed class BookingConfiguration : IEntityTypeConfiguration<Booking>
 {
     public void Configure(EntityTypeBuilder<Booking> builder)
     {
-        builder.Property(b => b.Id)
-            .HasColumnType("integer")
-            .IsRequired()
-            .ValueGeneratedOnAdd();
+        builder.ToTable("Bookings");
 
         builder.Property(b => b.DateFrom)
             .HasColumnType("datetime")
