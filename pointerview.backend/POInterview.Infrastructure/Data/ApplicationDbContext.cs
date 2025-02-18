@@ -28,8 +28,8 @@ public class ApplicationDbContext : DbContext
                 modelBuilder.Entity(entityType.ClrType)
                     .Property<DateTime>("CreatedAt")
                     .HasColumnType("datetime")
-                    .HasDefaultValueSql("DATETIME('now')")
                     .ValueGeneratedOnAdd()
+                    .HasDefaultValueSql("date('now')")
                     .IsRequired();
             }
         }

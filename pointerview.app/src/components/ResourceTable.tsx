@@ -1,8 +1,8 @@
 import { Button, Table } from "@mantine/core";
-import { Resource } from "../types/Response.types";
+import { ResourceInfo } from "../types/types";
 
 interface IResourceTableProps {
-    resources: Resource[],
+    resources: ResourceInfo[],
     onBookModalOpen: (id: number) => void;
 }
 
@@ -18,7 +18,7 @@ const ResourceTable = ({ resources, onBookModalOpen }: IResourceTableProps) => {
         </Table.Tr>
     );
 
-    const rows = resources.map((element: Resource) => (
+    const rows = resources.map((element: ResourceInfo) => (
         <Table.Tr key={element.id}>
             <Table.Td>{element.id}</Table.Td>
             <Table.Td>{element.name}</Table.Td>

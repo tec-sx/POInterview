@@ -4,5 +4,6 @@ namespace POInterview.Application.Contracts;
 
 public interface IResourceService
 {
-    IReadOnlyCollection<ResourceDto> GetAllResources();
+    Task<List<ResourceInfoDto>> GetAllResourcesAsync();
+    Task<ResourceDetailsDto> GetResourceByIdAsync(int id);
 }

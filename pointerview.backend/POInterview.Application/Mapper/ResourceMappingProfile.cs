@@ -8,7 +8,8 @@ internal sealed class ResourceMappingProfile : Profile
 {
     public ResourceMappingProfile()
     {
-        CreateMap<Resource, ResourceDto>();
-        CreateMap<ResourceDto, Resource>();
+        CreateMap<Resource, ResourceInfoDto>();
+        CreateMap<Resource, ResourceDetailsDto>()
+            .ForMember(dest => dest.Bookings, opt => opt.MapFrom(src => src.Bookings));
     }
 }

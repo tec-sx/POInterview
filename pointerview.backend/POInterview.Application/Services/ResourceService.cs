@@ -1,23 +1,33 @@
-﻿using POInterview.Application.Contracts;
+﻿using AutoMapper;
+using POInterview.Application.Contracts;
 using POInterview.Application.Models;
-using POInterview.Infrastructure.Data;
+using POInterview.Infrastructure.Data.Entities;
+using POInterview.Infrastructure.Data.Repositories;
 
 namespace POInterview.Application.Services;
 
 public sealed class ResourceService : IResourceService
 {
-    private readonly ApplicationDbContext _context;
-    public ResourceService(ApplicationDbContext context)
+    private readonly IRepository<Resource> _resourcesRepository;
+    private readonly IMapper _mapper;
+
+    public ResourceService(IRepository<Resource> resourcesRepository, IMapper mapper)
     {
-        _context = context;
+        _resourcesRepository = resourcesRepository;
+        _mapper = mapper;
     }
 
-    public IReadOnlyCollection<ResourceDto> GetAllResources()
+    public async Task<List<ResourceInfoDto>> GetAllResourcesAsync()
     {
-        return _context.Resources.Select(r => new ResourceDto
-        {
-            Id = r.Id,
-            Name = r.Name
-        }).ToList();
+        var resources = await _resourcesRepository.GetAllAsync();
+
+        return _mapper.Map<List<ResourceInfoDto>>(resources);
+    }
+
+    public async Task<ResourceDetailsDto> GetResourceByIdAsync(int id)
+    {
+        var resource = await _resourcesRepository.GetByIdAsync(id);
+
+        return _mapper.Map<ResourceDetailsDto>(resource);
     }
 }

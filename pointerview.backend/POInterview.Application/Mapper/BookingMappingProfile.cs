@@ -8,9 +8,8 @@ internal sealed class BookingMappingProfile : Profile
 {
     public BookingMappingProfile()
     {
-        CreateMap<Booking, BookingDto>()
-            .ForMember(dest => dest.ResourceId, opt => opt.MapFrom(src => src.Resource.Id));
         CreateMap<BookingDto, Booking>()
-            .ForMember(dest => dest.Resource, opt => opt.Ignore());
+            .ForMember(dest => dest.Resource, opt => opt.Ignore())
+            .ReverseMap();
     }
 }

@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "POInterview.API\\POInterview.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Demo.Email\\Demo.Email.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

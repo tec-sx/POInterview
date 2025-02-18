@@ -1,6 +1,6 @@
 ﻿namespace POInterview.Application.Models;
 
-public class BookingDto
+public record BookingDto
 {
     public DateTime DateFrom { get; set; }
     public DateTime DateTo { get; set; }

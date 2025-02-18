@@ -10,16 +10,25 @@ internal sealed class BookingConfiguration : IEntityTypeConfiguration<Booking>
     {
         builder.ToTable("Bookings");
 
-        builder.Property(b => b.DateFrom)
+        builder
+            .Property(b => b.DateFrom)
             .HasColumnType("datetime")
             .IsRequired();
 
-        builder.Property(b => b.DateTo)
+        builder
+            .Property(b => b.DateTo)
             .HasColumnType("datetime")
             .IsRequired();
 
-        builder.Property(b => b.BookedQuantity)
+        builder
+            .Property(b => b.BookedQuantity)
             .HasColumnType("integer")
+            .IsRequired();
+
+        builder
+            .HasOne(b => b.Resource)
+            .WithMany(r => r.Bookings)
+            .HasForeignKey(b => b.ResourceId)
             .IsRequired();
     }
 }

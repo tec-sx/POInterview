@@ -1,10 +1,12 @@
 import './App.css';
-import { AppShell, createTheme, MantineProvider } from '@mantine/core';
+import { AppShell, MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import ResourceOverviewPage from './pages/ResourceOverviewPage';
 
 function App() {
   return (
-    <MantineProvider defaultColorScheme="dark">
+    <MantineProvider defaultColorScheme="light">
+      <Notifications />
       <AppShell header={{ height: 60 }} padding="md">
         <AppShell.Header>P.O. Interview</AppShell.Header>
         <AppShell.Main>

@@ -1,21 +1,14 @@
-import { Card, Container, Modal } from "@mantine/core";
-import { Resource } from "../types/Response.types";
+import { Card, Container, LoadingOverlay, Modal } from "@mantine/core";
 import ResourceTable from "../components/ResourceTable";
 import ResourceBookingForm from "../components/ResourceBookingForm";
 import { useDisclosure } from "@mantine/hooks";
-import { useEffect, useState } from "react";
-import { ResourcesApi } from "../api/resourcesApi";
+import { useState } from "react";
+import { useGetAllResources } from "../hooks/useGetAllResources";
 
 const ResourceOverviewPage = () => {
-  const [resources, setResources] = useState<Resource[]>([]);
   const [opened, { open, close }] = useDisclosure(false);
-  const [selectedResourceId, setResourceId] = useState(-1);
-
-  useEffect(() => {
-    ResourcesApi.getAll()
-      .then(response => setResources(response))
-      .catch(error => console.log(error));
-  });
+  const [selectedResourceId, setResourceId] = useState<number>(0);
+  const { resources, loadingResources} = useGetAllResources(); ;
 
   const handleBookModalOpen = (id:number) => {
     setResourceId(id);
@@ -25,9 +18,10 @@ const ResourceOverviewPage = () => {
   return (
     <Container>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <LoadingOverlay visible={loadingResources} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
         <ResourceTable resources={resources} onBookModalOpen={handleBookModalOpen} />
       </Card>
-      <Modal opened={opened} onClose={close} title={`Booking Resource ${selectedResourceId}`}>
+      <Modal opened={opened} onClose={close}>
         <ResourceBookingForm resourceId={selectedResourceId}/>
       </Modal>
     </Container>

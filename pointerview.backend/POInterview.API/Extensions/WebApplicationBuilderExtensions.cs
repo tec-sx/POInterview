@@ -1,6 +1,6 @@
 ﻿using POInterview.API.Infrastructure;
-using POInterview.Infrastructure.Extensions;
-using POInterview.Application.Extensions;
+using POInterview.Application.Configuration;
+using POInterview.Infrastructure.Configuration;
 
 namespace POInterview.API.Extensions;
 
